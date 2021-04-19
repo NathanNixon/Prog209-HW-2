@@ -1,0 +1,68 @@
+<html>
+<body>
+<style>#Section1 {
+  background-image: linear-gradient(teal, blue);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  }
+#Section2 {
+  background-image: linear-gradient(red, yellow);
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 30px;
+  }</style>
+
+<section id=Section1>
+<p>This page is an eye sore
+</p>
+<ul id="FirstList"></ul>
+<div id=Div1><button onclick="Reverso()" id=Button1>Reverso</button></div>
+</section>
+<section id=Section2>
+<p>This one is too.
+</p>
+<ul id="SecondList"></ul>
+<div id=Div2>
+<button onclick="wordCount()" id=Button2>Reset Button
+</button></div>
+</section>
+
+<script>
+let words = new Array(" ", " ", " ");
+function wordCount() {
+  document.getElementById("Section2").style.display = "none";
+    document.getElementById("Div1").style.display = "none";
+  let count = 0;
+  while (count < 3) {
+  	  words[count] = prompt();
+      count++;
+  }
+  document.getElementById("FirstList").innerHTML = words;
+    document.getElementById("Div1").style.display = "block";
+  document.getElementById("Section1").style.display = "block";
+
+}
+function Reverso() {
+	document.getElementById("Section1").style.display = "none";
+  	document.getElementById("Div2").style.display = "none";
+	let ReversoArray = words.slice();
+	let count2 = 0;
+  while (count2 < 3) {
+  	let Word1 = ReversoArray[count2];
+    let Length1 = Word1.length;
+    let Middle1 = Word1.substring(1, Length1-1);
+    let First1 = Word1.substring (0, 1);
+    let Last1 = Word1.substring (Length1-1, Length1+1);
+    ReversoArray[count2] = Last1 + Middle1 + First1;
+    count2++;
+  }
+  document.getElementById("SecondList").innerHTML = ReversoArray;
+  	document.getElementById("Div2").style.display = "Block";
+  document.getElementById("Section2").style.display = "Block";
+
+}
+wordCount ();
+</script>
+
+</body>
+</html>
+
